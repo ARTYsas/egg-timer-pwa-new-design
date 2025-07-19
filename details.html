@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Описание варки</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="details-screen fade-in">
+    <div class="details-content">
+      <img id="eggImage" src="" alt="Яйцо" />
+      <h2 id="eggTitle">...</h2>
+      <p id="eggDescription">...</p>
+    </div>
+    <button class="info-button back-button" onclick="window.history.back()">Назад</button>
+  </div>
+
+  <script>
+    const data = {
+      0: {
+        title: "3 минуты — жидкое яйцо",
+        image: "images/3-min.png",
+        description: "Жидкий белок и полностью жидкий желток. Такое яйцо подают в ложке или в скорлупе, иногда используют для соусов."
+      },
+      1: {
+        title: "4 минуты — кремообразное яйцо",
+        image: "images/4-min.png",
+        description: "Белок почти сварился, желток густой, как крем. Идеально для салатов, рамэна и закусок."
+      },
+      2: {
+        title: "6 минут — мягкое яйцо",
+        image: "images/6-min.png",
+        description: "Полностью плотный белок и слегка тягучий желток. Универсальный вариант, особенно для тостов."
+      },
+      3: {
+        title: "9 минут — полутвёрдое яйцо",
+        image: "images/9-min.png",
+        description: "Желток почти сварен, но не пересушен. Хорошо подходит для закусок и сэндвичей."
+      },
+      4: {
+        title: "12 минут — твёрдое яйцо",
+        image: "images/12-min.png",
+        description: "Полностью сваренный желток, но ещё не меловой. Классика для салатов и нарезки."
+      },
+      5: {
+        title: "15 минут — полностью сваренное яйцо",
+        image: "images/15-min.png",
+        description: "Желток крошащийся, белок плотный. Используется для паштетов, фаршировки, длительного хранения."
+      }
+    };
+
+    const selectedIndex = localStorage.getItem("selectedIndex") || 0;
+    const egg = data[selectedIndex];
+
+    document.getElementById("eggImage").src = egg.image;
+    document.getElementById("eggTitle").textContent = egg.title;
+    document.getElementById("eggDescription").textContent = egg.description;
+  </script>
+</body>
+</html>
